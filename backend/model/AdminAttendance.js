@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-const adminSchema = new mongoose.Schema({
+const adminattendenceSchema = new mongoose.Schema({
 
 },
 {
     timestamps:true
 });
 
-export default mongoose.model('')
+export default mongoose.model('AdminAttendence',adminattendenceSchema);
