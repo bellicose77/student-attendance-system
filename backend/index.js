@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
+import routes from './routes/main.js'
 
 const app = express();
 dotenv.config()
@@ -15,7 +16,10 @@ const connect = async()=>{
     catch(e){
         throw(e)
     }
-}
+};
+
+//middel ware 
+app.use(routes)
 
 
 app.listen(port, () => {
