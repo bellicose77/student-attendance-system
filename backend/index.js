@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import routes from './routes/main.js'
+import cors from 'cors'
 
 const app = express();
 dotenv.config()
@@ -17,6 +18,9 @@ const connect = async()=>{
         throw(e)
     }
 };
+//build in middelware
+app.use(express.json())
+app.use(cors());
 
 //middel ware 
 app.use(routes)

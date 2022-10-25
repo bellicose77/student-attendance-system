@@ -3,5 +3,9 @@ export const mainHome = async(req,res)=>{
 }
 
 export const registerController = async(req,res)=>{
-    res.json("register page");
+   try{
+      
+   }catch(err){
+    next(err)
+   }
 }
