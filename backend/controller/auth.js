@@ -17,8 +17,13 @@ export const registerController = async(req,res)=>{
     if(user){
         return res.status(400).json({message:"User already exits"})
     }
-    const hash = 
-    const newUser = new User({name:name,email:email})
+    const saltRound =10;
+    const hash = bcrypt.hashSync(password,saltRound); 
+    const newUser = new User({name:name,email:email,password:hash})
+    const credential = await newUser.save();
+    if(credential){
+        return res.status(200).json({message:"User created successfully"})
+    }
       
    }catch(err){
     next(err)
