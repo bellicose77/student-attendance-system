@@ -1,4 +1,4 @@
-import { createNewUser, findUserByProperty } from "./user.js"
+import { createNewUser, findUserByProperty } from "./user.js";
 import bcrypt from 'bcrypt'
 
  export const registerService = async({name,email,password})=>{

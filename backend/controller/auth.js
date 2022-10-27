@@ -1,6 +1,5 @@
 import { response } from "express";
-i
-import { registerService } from "../services/auth";
+import { registerService } from "../services/auth.js";
 
 export const mainHome = async(req,res)=>{
     res.json("Welcome to home page")
@@ -15,10 +14,9 @@ export const registerController = async(req,res,next)=>{
    try{
    
     const user = await registerService({name,email,password})
-    const credential = await newUser.save();
-    console.log("credential",credential)
+    console.log("credential",user)
     if(credential){
-        return res.status(200).json({message:"User created successfully"})
+        return res.status(200).json({message:"User created successfully",user})
     }
       
    }catch(err){
