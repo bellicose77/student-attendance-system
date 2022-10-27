@@ -1,5 +1,5 @@
 import { response } from "express";
-import { registerService } from "../services/auth.js";
+import { loginService, registerService } from "../services/auth.js";
 
 export const mainHome = async(req,res)=>{
     res.json("Welcome to home page")
@@ -22,4 +22,15 @@ export const registerController = async(req,res,next)=>{
    }catch(err){
     next(err)
    }
+}
+
+export const loginController = async (req,res,next)=>{
+    const {email,password} = req.body;
+    try{
+        const user = await loginService({email,password})
+
+    }
+    catch(err){
+        next(err)
+    }
 }

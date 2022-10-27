@@ -15,4 +15,12 @@ import bcrypt from 'bcrypt'
     return createNewUser({name,email,password:hash});
 
 
+};
+
+export const loginService = async ({email,password})=>{
+    const user = await findUserByProperty('email',email)
+    if(!user){
+        throw error("Invaild credentials")
+    }
+
 }
