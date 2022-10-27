@@ -3,6 +3,8 @@ export const mainHome = async(req,res)=>{
 }
 
 export const registerController = async(req,res)=>{
+    const {name,email,password} = req.body;
+    console.log(name,email)
    try{
       
    }catch(err){

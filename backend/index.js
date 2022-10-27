@@ -26,6 +26,16 @@ app.use(cors());
 app.use(routes)
 
 
+//error handler 
+app.use((err,req,res,nex)=>{
+    if(err.message){
+        res.status(400).json({message:err.message})
+    }
+    else{
+        
+    }
+})
+
 app.listen(port, () => {
     connect();
     console.log(`Example app listening on port ${port}`)
