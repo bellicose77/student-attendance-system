@@ -32,7 +32,7 @@ app.use((err,req,res,nex)=>{
         res.status(400).json({message:err.message})
     }
     else{
-        
+        res.status(500).json({message:"ServerSide error"});
     }
 })
 
