@@ -1,10 +1,17 @@
-import { findUserByProperty } from "./user.js"
+import { createNewUser, findUserByProperty } from "./user.js"
+import bcrypt from 'bcrypt'
 
  export const registerService = async({name,email,password})=>{
     let user = await findUserByProperty({'email':email}) 
 
     if(user){
-        return res.status(400).json({message:"User already exits"})
+       throw error("User already exits")
     }
+    const saltRound =10;
+    const salt = bcrypt.genSaltSync(saltRound);
+    const hash = bcrypt.hashSync(password,salt); 
+
+    return createNewUser({name,email,password:hash});
+
 
 }

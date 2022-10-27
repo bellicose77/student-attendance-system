@@ -1,5 +1,6 @@
 import { response } from "express";
-import bcrypt from 'bcrypt'
+i
+import { registerService } from "../services/auth";
 
 export const mainHome = async(req,res)=>{
     res.json("Welcome to home page")
@@ -13,16 +14,7 @@ export const registerController = async(req,res,next)=>{
     }
    try{
    
-    const user = await registerService({name,password})
-    if(user){
-        return res.status(400).json({message:"User already exits"})
-    }
-    const saltRound =10;
-    const salt = bcrypt.genSaltSync(saltRound);
-    const hash = bcrypt.hashSync(password,salt); 
-    console.log(hash)
-    
-    const newUser = new User({name:name,email:email,password:hash})
+    const user = await registerService({name,email,password})
     const credential = await newUser.save();
     console.log("credential",credential)
     if(credential){

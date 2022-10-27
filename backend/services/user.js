@@ -6,3 +6,6 @@ export const findUserByProperty = (key,value)=>{
     }
     return User.findOne({[key]:value});
 }
+export const createNewUser = ({name,email,password})=>{
+    const user = new User({name,email,password})
+}
