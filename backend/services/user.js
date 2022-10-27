@@ -1,6 +1,6 @@
 import User from "../model/User"
 
-export const findByProperty = (key,value)=>{
+export const findUserByProperty = (key,value)=>{
     if(key===_id){
         return User.findById(value)
     }
