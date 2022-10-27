@@ -1,5 +1,4 @@
 import { response } from "express";
-import User from "../model/User.js";
 import bcrypt from 'bcrypt'
 
 export const mainHome = async(req,res)=>{
@@ -8,12 +7,13 @@ export const mainHome = async(req,res)=>{
 
 export const registerController = async(req,res,next)=>{
     const {name,email,password} = req.body;
-    console.log(name,email,password)
-   try{
+    console.log(name,email,password);
     if(!name || !email || !password){
         return res.status(400).json({message:"some data is missing"});
     }
-    const user = await User.findOne({email:email});
+   try{
+   
+    const user = await registerService({name,password})
     if(user){
         return res.status(400).json({message:"User already exits"})
     }
