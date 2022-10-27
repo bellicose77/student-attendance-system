@@ -27,7 +27,7 @@ app.use(routes)
 
 
 //error handler 
-app.use((err,req,res,nex)=>{
+app.use((err,req,res,next)=>{
     if(err.message){
         res.status(400).json({message:err.message})
     }
