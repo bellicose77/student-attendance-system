@@ -3,7 +3,7 @@ import { loginController, mainHome, registerController } from '../controller/aut
 
 const router = express.Router();
 
-//router.get('/',mainHome);
+router.get('/',mainHome);
 router.post('/register',registerController);
 router.post('/login', loginController);
 
