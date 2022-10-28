@@ -28,12 +28,10 @@ app.use(routes)
 
 //error handler 
 app.use((err,req,res,next)=>{
-    if(err.message){
-        res.status(400).json({message:err.message})
-    }
-    else{
-        res.status(500).json({message:"ServerSide error"});
-    }
+    const message = err.message ? err.message :"ServerSide error";
+    const status = err.status ? err.status:500;
+    return res.status(status).json(message)
+    
 })
 
 app.listen(port, () => {
