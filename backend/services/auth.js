@@ -20,6 +20,7 @@ import jwt from 'jsonwebtoken';
 
 export const loginService = async ({email,password})=>{
     const user = await findUserByProperty('email',email)
+    console.log("coming from login service",user)
     if(!user){
         throw error("Invaild credentials")
     }
