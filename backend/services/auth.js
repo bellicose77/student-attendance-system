@@ -22,5 +22,9 @@ export const loginService = async ({email,password})=>{
     if(!user){
         throw error("Invaild credentials")
     }
+    const isMatch = bcrypt.compare(password,user.password)
+    if(!isMatch){
+        throw error("Incorrect password")
+    }
 
 }
