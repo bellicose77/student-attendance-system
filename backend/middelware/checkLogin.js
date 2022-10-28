@@ -1,8 +1,8 @@
 export const checkLogin = async (req,res,next)=>{
     const {authorization} = req.headers;
+   // console.log(authorization)
     try{
-
-        const token = authorization.spilt(' ')[1]
+       const token = authorization.split(' ')[1]
         console.log(token);
         next();
     }catch(err){
