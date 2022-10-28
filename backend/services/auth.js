@@ -10,7 +10,7 @@ import jwt from 'jsonwebtoken';
     }
     const saltRound =10;
     const salt = bcrypt.genSaltSync(saltRound);
-    const hash = bcrypt.hashSync(password,salt); 
+    const hash = await  bcrypt.hashSync(password,salt); 
     console.log(hash)
 
     return createNewUser({name,email,password:hash});
@@ -24,7 +24,7 @@ export const loginService = async ({email,password})=>{
     if(!user){
         throw error("Invaild credentials")
     }
-    const isMatch = bcrypt.compare(password,user.password)
+    const isMatch = await bcrypt.compare(password,user.password)
     if(!isMatch){
         throw error("Incorrect password")
     }
