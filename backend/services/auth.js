@@ -34,6 +34,6 @@ export const loginService = async ({email,password})=>{
 		roles: user.roles,
 		accountStatus: user.accountStatus
     }
-    const token = 
+    const token = jwt.sign(payload,process.env.SECRTE_KEY,)
 
 }
