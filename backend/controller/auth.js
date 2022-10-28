@@ -27,7 +27,8 @@ export const registerController = async(req,res,next)=>{
 export const loginController = async (req,res,next)=>{
     const {email,password} = req.body;
     try{
-        const user = await loginService({email,password})
+        const token = await loginService({email,password});
+        res.status(200).json({"access_token": token,"message":"Login successfully"})
 
     }
     catch(err){

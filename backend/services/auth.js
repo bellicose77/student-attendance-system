@@ -34,6 +34,6 @@ export const loginService = async ({email,password})=>{
 		roles: user.roles,
 		accountStatus: user.accountStatus
     }
-    const token = jwt.sign(payload,process.env.SECRTE_KEY,)
+    return jwt.sign(payload,process.env.SECRET_KEY,{expiresIn:'2h'})
 
 }
