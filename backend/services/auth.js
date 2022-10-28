@@ -27,6 +27,13 @@ export const loginService = async ({email,password})=>{
     if(!isMatch){
         throw error("Incorrect password")
     }
+    const playload = {
+        _id:user._id,
+        name: user.name,
+		email: user.email,
+		roles: user.roles,
+		accountStatus: user.accountStatus
+    }
     const token = 
 
 }
