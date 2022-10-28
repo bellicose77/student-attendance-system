@@ -1,5 +1,6 @@
 import { createNewUser, findUserByProperty } from "./user.js";
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken';
 
  export const registerService = async({name,email,password})=>{
     let user = await findUserByProperty('email',email) 
@@ -26,5 +27,6 @@ export const loginService = async ({email,password})=>{
     if(!isMatch){
         throw error("Incorrect password")
     }
+    const token = 
 
 }
