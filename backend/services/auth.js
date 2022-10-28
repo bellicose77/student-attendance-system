@@ -12,8 +12,6 @@ import error from '../utils/error.js'
     const saltRound =10;
     const salt = bcrypt.genSaltSync(saltRound);
     const hash = await  bcrypt.hashSync(password,salt); 
-    console.log(hash)
-
     return createNewUser({name,email,password:hash});
 
 
@@ -23,11 +21,11 @@ export const loginService = async ({email,password})=>{
     const user = await findUserByProperty('email',email)
     console.log("coming from login service",user)
     if(!user){
-        throw error("Invaild credentials")
+        throw error("Invaild credentials",400)
     }
     const isMatch = await bcrypt.compare(password,user.password)
     if(!isMatch){
-        throw error("Incorrect password")
+        throw error("Incorrect password",400)
     }
     const payload = {
         _id:user._id,
