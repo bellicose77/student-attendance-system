@@ -1,3 +1,9 @@
-export const checkLogin = (req,res,next)=>{
-    
+export const checkLogin = async (req,res,next)=>{
+    const {authorization} = req.headers;
+    try{
+
+    }catch(err){
+        
+    }
+
 }
