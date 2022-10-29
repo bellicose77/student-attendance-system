@@ -1,7 +1,7 @@
 import { createNewUser, findUserByProperty } from "./user.js";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
-import error from '../utils/error.js'
+import {error} from '../utils/error.js'
 
  export const registerService = async({name,email,password})=>{
     let user = await findUserByProperty('email',email) 
