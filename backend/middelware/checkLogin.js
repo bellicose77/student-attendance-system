@@ -6,7 +6,7 @@ export const checkLogin = async (req,res,next)=>{
     try{
        const token = authorization.split(' ')[1];
        const decode = await jwt.verify(token,process.env.SECRET_KEY);
-        console.log("decode" ,decode);
+        //console.log("decode" ,decode);
         const {name,email,roles}=decode;
         next();
     }catch(err){
