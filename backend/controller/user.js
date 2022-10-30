@@ -31,4 +31,13 @@ export const getSingleUserController = async(req,res,next)=>{
         next(e);
     }
 
-}
+};
+
+export const deleteById = async(req,res,next)=>{
+    const {userId} = req.params;
+    try{
+
+    }catch(e){
+        next(e);
+    }
+};
