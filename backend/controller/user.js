@@ -21,9 +21,11 @@ export const getSingleUserController = async(req,res,next)=>{
     
     try{
         const {userId} = req.params;
-        const user = await findUserByProperty(userId);
-         console.log(userId);
-         return res.json({message:"here comes the request",userId})
+        const user = await findUserByProperty('_id',userId);
+        if(!user){
+            throw error("NO user using this id",404);
+        }
+         return res.json({message:"here comes the request",user})
 
     }catch(e){
         next(e);
