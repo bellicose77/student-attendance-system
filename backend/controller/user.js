@@ -1,9 +1,13 @@
-import User from "../model/User.js"
+import { findUsers } from "../services/user.js"
+import { error } from "../utils/error.js";
 
 export const getUserController = async(req,res,next)=>{
     try{
         
-        const user = await User.find({})
+        const user = await findUsers();
+        if(!user){
+            throw error("There is no user",404);
+        }
         return res.json({meassage:"Something is coming",user})
         
 

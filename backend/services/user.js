@@ -1,7 +1,7 @@
 import User from "../model/User.js"
 
 export const findUsers = ()=>{
-    
+    return User.find()
 }
 
 export const findUserByProperty = (key,value)=>{
