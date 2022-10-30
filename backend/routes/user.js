@@ -1,5 +1,5 @@
 import express from 'express'
-import { deleteById, getSingleUserController, getUserController } from '../controller/user.js';
+import { deleteById, getSingleUserController, getUserController, updateById } from '../controller/user.js';
 
 const router = express.Router();
 //get single user
@@ -8,7 +8,7 @@ router.get('/:userId',getSingleUserController);
 router.delete('/:userId',deleteById);
 
 // update an user by id
-router.put('/:userId');
+router.put('/:userId',updateById);
 //create a new user
 router.post('/');
 //get all users
