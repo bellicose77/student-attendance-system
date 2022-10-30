@@ -36,6 +36,7 @@ export const getSingleUserController = async(req,res,next)=>{
 export const deleteById = async(req,res,next)=>{
     const {userId} = req.params;
     try{
+        const user = await findUserByProperty('_id',userId);
 
     }catch(e){
         next(e);
