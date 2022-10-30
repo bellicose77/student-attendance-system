@@ -47,3 +47,14 @@ export const deleteById = async(req,res,next)=>{
         next(e);
     }
 };
+
+export const updateById = async(req,res,next)=>{
+    const {userId} = req.params;
+    try{
+        const user = await findUserByProperty('_id',userId);
+
+    }catch(e){
+        next(e);
+    }
+
+};
