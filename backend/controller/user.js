@@ -14,4 +14,8 @@ export const getUserController = async(req,res,next)=>{
     }catch(e){
         next(e)
     }
+};
+
+export const getSingleUserController = async(req,res,next)=>{
+    
 }
