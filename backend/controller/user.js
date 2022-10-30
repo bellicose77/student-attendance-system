@@ -37,6 +37,11 @@ export const deleteById = async(req,res,next)=>{
     const {userId} = req.params;
     try{
         const user = await findUserByProperty('_id',userId);
+        if(!user){
+            throw error("User not found",400)
+        }
+        await user.remove();
+        return res.status(203).send();
 
     }catch(e){
         next(e);

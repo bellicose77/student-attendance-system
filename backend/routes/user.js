@@ -6,6 +6,9 @@ const router = express.Router();
 router.get('/:userId',getSingleUserController);
 //delete a single user 
 router.delete('/:userId',deleteById);
+
+// update an user by id
+router.put('/:userId');
 //create a new user
 router.post('/');
 //get all users
