@@ -6,8 +6,8 @@ export const mainHome = async(req,res)=>{
 }
 
 export const registerController = async(req,res,next)=>{
-    const {name,email,password} = req.body;
-    console.log(name,email,password);
+    const {name,email,password,roles,currentStatus} = req.body;
+    // console.log(name,email,password);
     if(!name || !email || !password){
         return res.status(400).json({message:"some data is missing"});
     }
