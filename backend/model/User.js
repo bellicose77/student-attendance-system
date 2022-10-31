@@ -19,7 +19,12 @@ const userSchema  = new  mongoose.Schema({
         required:true,
         default:['Student']
     },
-    accountStatus:String
+    accountStatus:{
+        type: String,
+        enum:['PENDING','ACTIVE','REJECTED'],
+        default:'PENDING',
+        required: true
+    }
 
 },{timestamps: true}
 );
