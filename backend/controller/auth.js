@@ -6,14 +6,14 @@ export const mainHome = async(req,res)=>{
 }
 
 export const registerController = async(req,res,next)=>{
-    const {name,email,password,roles,currentStatus} = req.body;
+    const {name,email,password} = req.body;
     // console.log(name,email,password);
     if(!name || !email || !password){
         return res.status(400).json({message:"some data is missing"});
     }
    try{
    
-    const user = await registerService({name,email,password,roles,currentStatus})
+    const user = await registerService({name,email,password})
     // console.log("credential",user)
     if(user){
         return res.status(200).json({message:"User created successfully",user})
