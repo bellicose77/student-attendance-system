@@ -8,7 +8,7 @@ export const getUserController = async(req,res,next)=>{
         if(!user){
             throw error("There is no user",404);
         }
-        return res.json({meassage:"Something is coming",user})
+        return res.status(200).json(user);
         
 
     }catch(e){
@@ -68,3 +68,11 @@ export const updateById = async(req,res,next)=>{
     }
 
 };
+
+export const postUser = async(req,res,next)=>{
+    try{
+
+    }catch(e){
+        next(e);
+    }
+}
