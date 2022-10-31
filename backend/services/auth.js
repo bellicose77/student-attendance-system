@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
 import {error} from '../utils/error.js'
 
- export const registerService = async({name,email,password})=>{
+ export const registerService = async({name,email,password,roles,currentStatus})=>{
     let user = await findUserByProperty('email',email) 
 
     if(user){
@@ -12,7 +12,7 @@ import {error} from '../utils/error.js'
     const saltRound =10;
     const salt = bcrypt.genSaltSync(saltRound);
     const hash = await  bcrypt.hashSync(password,salt); 
-    return createNewUser({name,email,password:hash});
+    return createNewUser({name,email,password:hash,roles,currentStatus});
 
 
 };

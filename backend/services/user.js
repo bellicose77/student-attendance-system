@@ -10,7 +10,13 @@ export const findUserByProperty = (key,value)=>{
     }
     return User.findOne({[key]:value});
 }
-export const createNewUser = ({name,email,password})=>{
-    const user = new User({name,email,password});
+export const createNewUser = ({name,email,password,roles,currentStatus})=>{
+    const user = new User({
+        name,
+        email,
+        password,
+        roles:roles ? roles:'STUDENT',
+        currentStatus: currentStatus ? currentStatus:'PENDING'
+    });
     return user.save()
 }
