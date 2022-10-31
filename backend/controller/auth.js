@@ -13,8 +13,8 @@ export const registerController = async(req,res,next)=>{
     }
    try{
    
-    const user = await registerService({name,email,password})
-    console.log("credential",user)
+    const user = await registerService({name,email,password,roles,currentStatus})
+    // console.log("credential",user)
     if(user){
         return res.status(200).json({message:"User created successfully",user})
     }
