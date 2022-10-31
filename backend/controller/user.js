@@ -50,7 +50,7 @@ export const deleteById = async(req,res,next)=>{
 
 export const updateById = async(req,res,next)=>{
     const {userId} = req.params;
-    const {} = req.body;
+    const {name,roles,accountstatus} = req.body;
     try{
         const user = await findUserByProperty('_id',userId);
 
