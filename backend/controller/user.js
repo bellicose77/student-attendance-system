@@ -50,9 +50,18 @@ export const deleteById = async(req,res,next)=>{
 
 export const updateById = async(req,res,next)=>{
     const {userId} = req.params;
-    const {name,roles,accountstatus} = req.body;
+    const {name,roles,accountStatus} = req.body;
     try{
         const user = await findUserByProperty('_id',userId);
+        if(!user){
+            throw error("User not found",404)
+        }
+        user.name = name ?? user.name;
+        user.roles= roles ?? user.roles;
+        user.accountStatus = accountStatus ?? user.accountStatus;
+        await user.save();
+        return res.status(200).json({meassage:"User update successfully",user})
+
 
     }catch(e){
         next(e);
