@@ -14,7 +14,11 @@ const userSchema  = new  mongoose.Schema({
         type:String,
         required:true
     },
-    roles:[String],
+    roles:{
+        type:[String],
+        required:true,
+        default:['Student']
+    },
     accountStatus:String
 
 },{timestamps: true}
