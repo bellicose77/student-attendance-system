@@ -1,6 +1,6 @@
+import { registerService } from "../services/auth.js";
 import { findUserByProperty, findUsers } from "../services/user.js"
 import { error } from "../utils/error.js";
-import { registerController } from "./auth.js";
 
 export const getUserController = async(req,res,next)=>{
     try{
@@ -72,8 +72,12 @@ export const updateById = async(req,res,next)=>{
 
 export const postUser = async(req,res,next)=>{
     const {name,email,password,roles,accountStatus} = req.body;
+    console.log("post api",name,email)
+    
     try{
-        const user = await registerController({name,email,password,roles,accountStatus});
+        const user = await registerService({name,email,password,roles,accountStatus})
+        console.log("user post",user)
+        return res.status(200).json(user);
 
     }catch(e){
         next(e);
